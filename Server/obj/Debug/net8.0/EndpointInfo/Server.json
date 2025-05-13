@@ -1,0 +1,316 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Server",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/Documents/saveDokumentUdostoveraushiyLichnost": {
+      "post": {
+        "tags": [
+          "Documents"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DokumentDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DokumentDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DokumentDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Documents/GetDokumentUdostoveraushiyLichnost": {
+      "get": {
+        "tags": [
+          "Documents"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DocumentPredostavlaushiyLgotu"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DocumentPredostavlaushiyLgotu"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DocumentPredostavlaushiyLgotu"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "DocumentPredostavlaushiyLgotu": {
+        "type": "object",
+        "properties": {
+          "кодДокументаПредоставляющегоЛьготу": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "фио": {
+            "type": "string",
+            "nullable": true
+          },
+          "типДокумента": {
+            "type": "string",
+            "nullable": true
+          },
+          "серия": {
+            "type": "string",
+            "nullable": true
+          },
+          "номер": {
+            "type": "string",
+            "nullable": true
+          },
+          "датаВыдачи": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "датаОкончанияСрокаДействия": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "кодДокументаПредоставляющегоЛьготуNavigation": {
+            "$ref": "#/components/schemas/ObshieSvedenya"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DokumentDto": {
+        "type": "object",
+        "properties": {
+          "кодДокументаУдостоверяющегоЛичность": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "фио": {
+            "type": "string",
+            "nullable": true
+          },
+          "типДокумента": {
+            "type": "string",
+            "nullable": true
+          },
+          "серия": {
+            "type": "string",
+            "nullable": true
+          },
+          "номер": {
+            "type": "string",
+            "nullable": true
+          },
+          "датаВыдачи": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "датаОкончанияСрокаДействия": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "кемВыдан": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DokumentUdostoveraushiyLichnost": {
+        "type": "object",
+        "properties": {
+          "кодДокументаУдостоверяющегоЛичность": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "фио": {
+            "type": "string",
+            "nullable": true
+          },
+          "типДокумента": {
+            "type": "string",
+            "nullable": true
+          },
+          "серия": {
+            "type": "string",
+            "nullable": true
+          },
+          "номер": {
+            "type": "string",
+            "nullable": true
+          },
+          "датаВыдачи": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "датаОкончанияСрокаДействия": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "кемВыдан": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ObshieSvedenya": {
+        "type": "object",
+        "properties": {
+          "кодОбщихСведений": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "фио": {
+            "type": "string",
+            "nullable": true
+          },
+          "датаРождения": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "пол": {
+            "type": "string",
+            "nullable": true
+          },
+          "адресРегистрации": {
+            "type": "string",
+            "nullable": true
+          },
+          "адресПроживания": {
+            "type": "string",
+            "nullable": true
+          },
+          "телефон": {
+            "type": "string",
+            "nullable": true
+          },
+          "документПредоставляющийЛьготу": {
+            "$ref": "#/components/schemas/DocumentPredostavlaushiyLgotu"
+          },
+          "документУдостоверяющийЛичность": {
+            "$ref": "#/components/schemas/DokumentUdostoveraushiyLichnost"
+          },
+          "социальноеПоложение": {
+            "$ref": "#/components/schemas/SocialnoePolojenie"
+          },
+          "услугиs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Uslugi"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SocialnoePolojenie": {
+        "type": "object",
+        "properties": {
+          "кодСоциальногоПоложения": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "фио": {
+            "type": "string",
+            "nullable": true
+          },
+          "социальнаяКатегория": {
+            "type": "string",
+            "nullable": true
+          },
+          "инвалидность": {
+            "type": "string",
+            "nullable": true
+          },
+          "группаИнвалидности": {
+            "type": "string",
+            "nullable": true
+          },
+          "семейноеПоложение": {
+            "type": "string",
+            "nullable": true
+          },
+          "кодСоциальногоПоложенияNavigation": {
+            "$ref": "#/components/schemas/ObshieSvedenya"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Uslugi": {
+        "type": "object",
+        "properties": {
+          "кодУслуги": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "кодОбщихСведений": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "фио": {
+            "type": "string",
+            "nullable": true
+          },
+          "наименованиеУслуги": {
+            "type": "string",
+            "nullable": true
+          },
+          "датаОказанияУслуги": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "кодОбщихСведенийNavigation": {
+            "$ref": "#/components/schemas/ObshieSvedenya"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+[
+  {
+    "ContainingType": "DocumentsController",
+    "Method": "GetA",
+    "RelativePath": "api/Documents/GetDokumentUdostoveraushiyLichnost",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Server.Models.DocumentPredostavlaushiyLgotu, Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DocumentsController",
+    "Method": "UpdateDocument",
+    "RelativePath": "api/Documents/saveDokumentUdostoveraushiyLichnost",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "updatedDoc",
+        "Type": "Server.Models.DTO.DokumentDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
